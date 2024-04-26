@@ -10,6 +10,7 @@ using WebApi.DBOperations;
 using FluentValidation.Results;
 using static WebApi.BookOperations.CreateBook.CreateBookCommand;
 using FluentValidation;
+using AutoMapper;
 
 namespace WebApi.Controllers
 {
@@ -18,15 +19,17 @@ namespace WebApi.Controllers
     public class BookController : ControllerBase
     {
         private readonly BookStoreDbContext _context;
-        public BookController(BookStoreDbContext context)
+        private readonly IMapper _mapper;
+        public BookController(BookStoreDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public IActionResult GetBooks()
         {
-            GetBooksQuery getBooksQuery = new GetBooksQuery(_context);
+            GetBooksQuery getBooksQuery = new GetBooksQuery(_context,_mapper);
             var result = getBooksQuery.Handle();
             return Ok(result);
         }
@@ -38,7 +41,7 @@ namespace WebApi.Controllers
 
             try
             {
-                GetBookQuery query = new GetBookQuery(_context);
+                GetBookQuery query = new GetBookQuery(_context,_mapper);
                 query.BookId = id;
                 GetBookQueryValidator validator=new();
                 validator.ValidateAndThrow(query);
@@ -52,30 +55,16 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        // [HttpGet()]
-        // public Book Get([FromQuery] string id)
-        // {
-        //     Book book=books.FirstOrDefault(x=>x.Id==Convert.ToInt32(id));
-
-        //     return book;
-        // }
-
         //--POST--
         [HttpPost()]
         public IActionResult AddBook([FromBody] CreateBookModel newBook)
         {
-            CreateBookCommand command = new CreateBookCommand(_context);
-            try
-            {
-                command.Model = newBook;
-                CreateBookCommandValidator validator=new CreateBookCommandValidator();
-                validator.ValidateAndThrow(command);
-                command.Handle(); 
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            CreateBookCommand command = new CreateBookCommand(_context, _mapper);
+            
+            command.Model = newBook;
+            CreateBookCommandValidator validator=new CreateBookCommandValidator();
+            validator.ValidateAndThrow(command);
+            command.Handle(); 
 
             return Ok();
         }
