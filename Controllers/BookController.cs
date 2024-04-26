@@ -71,19 +71,9 @@ namespace WebApi.Controllers
                 CreateBookCommandValidator validator=new CreateBookCommandValidator();
                 validator.ValidateAndThrow(command);
                 command.Handle(); 
-                // if(!result.IsValid)
-                // {
-                //     foreach (var item in result.Errors)
-                //     {
-                //         Console.WriteLine("Özellik: "+item.PropertyName+ "-Error Message: "+item.ErrorMessage);
-                //     }
-                // }
-                // else
-                //     command.Handle(); 
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
 
