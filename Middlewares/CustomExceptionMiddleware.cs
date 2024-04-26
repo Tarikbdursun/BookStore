@@ -31,20 +31,21 @@ public class CustomExceptionMiddleware
         {
             watch.Stop();
             await HandleException(context,ex,watch);
-            throw;
         }
         
     }
 
     private Task HandleException(HttpContext context, Exception ex, Stopwatch watch)
     {
-        string message="[Error] HTTP "+context.Request.Method + " - " + context.Response.StatusCode 
-                        + "Error Message " +ex.Message 
-                        + " in "+watch.Elapsed.TotalMicroseconds+" ms";
-
-        System.Console.WriteLine(message);
         context.Response.ContentType = "application/json";
         context.Response.StatusCode=(int)HttpStatusCode.InternalServerError;
+
+        string message="[Error] HTTP "+context.Request.Method + " - " + context.Response.StatusCode 
+                        + " Error Message: " +ex.Message 
+                        + " in "+watch.Elapsed.TotalMicroseconds+" ms";
+        Console.WriteLine(message);
+
+
 
         var result = JsonConvert.SerializeObject(new {error = ex.Message},Formatting.None);
         
