@@ -1,6 +1,7 @@
 using AutoMapper;
-using WebApi.Common;
+using Microsoft.EntityFrameworkCore;
 using WebApi.DBOperations;
+using WebApi.Entities;
 
 namespace WebApi.BookOperations.GetBookDetail
 {
@@ -18,7 +19,7 @@ private readonly IMapper _mapper;
 
         public BookDetailViewModel Handle()
         {
-            Book book = _dbContext.Books.FirstOrDefault(x => x.Id == BookId);
+            Book book = _dbContext.Books.Include(x=>x.Genre).FirstOrDefault(x => x.Id == BookId);
 
             if(book is null)
                 throw new InvalidOperationException("Kitap Bulunamadı");
