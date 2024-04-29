@@ -12,8 +12,8 @@ using static WebApi.BookOperations.CreateBook.CreateBookCommand;
 using FluentValidation;
 using AutoMapper;
 
-namespace WebApi.Controllers
-{
+namespace WebApi.Controllers;
+
     [ApiController]
     [Route("[controller]s")]
     public class BookController : ControllerBase
@@ -89,4 +89,3 @@ namespace WebApi.Controllers
             return Ok();
         }
     }
-}

@@ -13,9 +13,35 @@ namespace WebApi.DBOperations
             using (var context = new BookStoreDbContext(serviceProvider.GetRequiredService<DbContextOptions<BookStoreDbContext>>()))
             {
                 if (context.Books.Any())
-                {
                     return;
-                }
+                    
+                if (context.Authors.Any())
+                    return;
+
+                context.Authors.AddRange
+                (
+                    new Author 
+                    {
+                        Name = "Eric",
+                        LastName = "Ries",
+                        Birthdate = new DateTime(1978,9,22)
+                    },
+                    new Author 
+                    {
+                        Name = "Charlotte Perkins",
+                        LastName = "Gilman",
+                        Birthdate = new DateTime(1860,7,3)
+                    },
+                    new Author 
+                    {
+                        Name = "Frank",
+                        LastName = "Herbert",
+                        Birthdate = new DateTime(1920,2,11)
+                    }
+                );
+
+                if (context.Genres.Any())
+                    return;
                 
                 context.Genres.AddRange
                 (
@@ -32,6 +58,9 @@ namespace WebApi.DBOperations
                         Name="Romance"
                     }   
                 );
+
+                
+                
 
                 context.Books.AddRange
                 (

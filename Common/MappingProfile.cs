@@ -1,4 +1,7 @@
 using AutoMapper;
+using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
+using WebApi.Application.AuthorOperations.Queries.GetAuthorDetail;
+using WebApi.Application.AuthorOperations.Queries.GetAuthors;
 using WebApi.Application.GenreOperations.Queries.GetGenreDetail;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
 using WebApi.BookOperations.GetBookDetail;
@@ -20,5 +23,13 @@ public class MappingProfile : Profile
         //Genre
         CreateMap<Genre,GenresViewModel>();
         CreateMap<Genre,GenreDetailViewModel>();
+
+        //Author
+        CreateMap<CreateAuthorModel,Author>();
+        CreateMap<Author,AuthorsViewModel>();
+        CreateMap<Author,AuthorDetailViewModel>();
     }
+
+    //"error": "Required properties '{'LastName'}' are missing for the instance of entity type 'Author'. 
+    //Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the entity key value."
 }
