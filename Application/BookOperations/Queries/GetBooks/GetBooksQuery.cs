@@ -17,7 +17,10 @@ namespace WebApi.BookOperations.GetBooks
 
         public List<BooksViewModel> Handle()
         {
-            var bookList=_dbContext.Books.Include(x=>x.Genre).OrderBy(x=>x.Id).ToList();
+            var bookList=_dbContext.Books
+                            .Include(x=>x.Author)
+                            .Include(x=>x.Genre)
+                            .OrderBy(x=>x.Id).ToList();
             List<BooksViewModel> vm = _mapper.Map<List<BooksViewModel>>(bookList);//new List<BooksViewModel>();
             // foreach (Book book in bookList)
             // {
@@ -35,9 +38,12 @@ namespace WebApi.BookOperations.GetBooks
 
     public class BooksViewModel
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public int PageCount { get; set; }
         public string PublishDate { get; set; }
+        public string AuthorName { get; set; }
+        public int AuthorId { get; set; }
         public string Genre { get; set; }
     }
 }

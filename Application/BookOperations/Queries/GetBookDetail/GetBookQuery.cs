@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using WebApi.DBOperations;
@@ -19,9 +20,12 @@ private readonly IMapper _mapper;
 
         public BookDetailViewModel Handle()
         {
-            Book book = _dbContext.Books.Include(x=>x.Genre).FirstOrDefault(x => x.Id == BookId);
+            Book book = _dbContext.Books
+                            .Include(x => x.Author) 
+                            .Include(x=>x.Genre) 
+                            .FirstOrDefault(x => x.Id == BookId);
 
-            if(book is null)
+            if (book is null)
                 throw new InvalidOperationException("Kitap Bulunamadı");
                 
             BookDetailViewModel vm = _mapper.Map<BookDetailViewModel>(book);//new BookDetailViewModel();
@@ -39,6 +43,8 @@ private readonly IMapper _mapper;
         public string Title { get; set; }
         public string Genre { get; set; }
         public int PageCount { get; set; }
+        public string AuthorName { get; set; }
+        public int AuthorId { get; set; }
         public string PublishDate { get; set; }
     }
 }

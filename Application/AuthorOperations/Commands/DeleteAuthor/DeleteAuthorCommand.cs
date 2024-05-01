@@ -18,6 +18,9 @@ public class DeleteAuthorCommand
 
         if (author is null)
             throw new InvalidOperationException("Silinmek İstenen Yazar Bulunamadı");
+
+        if(_context.Books.Any(x=>x.AuthorId == AuthorId))
+            throw new InvalidOperationException("Kitabı Yayında Olan Yazar Silinemez");
         
         _context.Authors.Remove(author);
         _context.SaveChanges();

@@ -19,6 +19,14 @@ public class MappingProfile : Profile
         CreateMap<CreateBookModel, Book>();
         CreateMap<Book,BookDetailViewModel>().ForMember(dest => dest.Genre, opt=>opt.MapFrom(src=> src.Genre.Name));
         CreateMap<Book,BooksViewModel>().ForMember(dest => dest.Genre, opt=>opt.MapFrom(src=>src.Genre.Name));
+        CreateMap<Book,BookDetailViewModel>().ForMember(dest => dest.AuthorName, opt=>opt
+                                                            .MapFrom(src=> src.Author.Name+" "+src.Author.LastName));
+        CreateMap<Book,BooksViewModel>().ForMember(dest => dest.AuthorName, opt=>opt
+                                                            .MapFrom(src=>src.Author.Name + " "+src.Author.LastName));
+        CreateMap<Book,BookDetailViewModel>().ForMember(dest => dest.AuthorId, opt=>opt
+                                                            .MapFrom(src=> src.Author.Id));
+        CreateMap<Book,BooksViewModel>().ForMember(dest => dest.AuthorId, opt=>opt
+                                                            .MapFrom(src=>src.Author.Id));
         
         //Genre
         CreateMap<Genre,GenresViewModel>();

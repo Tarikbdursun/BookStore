@@ -26,7 +26,7 @@ public class CreateAuthorCommand
             throw new InvalidOperationException("Bu Yazar Zaten Var");
 
         author = _mapper.Map<Author>(Model);
-
+        
         _context.Authors.Add(author);
         _context.SaveChanges();
     }

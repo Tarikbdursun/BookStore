@@ -1,5 +1,7 @@
 using FluentValidation;
 using WebApi.Application.AuthorOperations.Commands.DeleteAuthor;
+using WebApi.BookOperations.GetBooks;
+using WebApi.DBOperations;
 
 namespace WebApi.Application.AuthorOperations.Commands.DeleteAuthor;
 

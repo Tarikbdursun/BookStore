@@ -1,7 +1,4 @@
-using System;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
 using WebApi.Entities;
 
 namespace WebApi.DBOperations
@@ -10,14 +7,8 @@ namespace WebApi.DBOperations
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new BookStoreDbContext(serviceProvider.GetRequiredService<DbContextOptions<BookStoreDbContext>>()))
-            {
-                if (context.Books.Any())
-                    return;
-                    
-                if (context.Authors.Any())
-                    return;
-
+             using (var context = new BookStoreDbContext(serviceProvider.GetRequiredService<DbContextOptions<BookStoreDbContext>>()))
+             {   
                 context.Authors.AddRange
                 (
                     new Author 
@@ -39,9 +30,6 @@ namespace WebApi.DBOperations
                         Birthdate = new DateTime(1920,2,11)
                     }
                 );
-
-                if (context.Genres.Any())
-                    return;
                 
                 context.Genres.AddRange
                 (
@@ -58,9 +46,6 @@ namespace WebApi.DBOperations
                         Name="Romance"
                     }   
                 );
-
-                
-                
 
                 context.Books.AddRange
                 (
@@ -90,8 +75,8 @@ namespace WebApi.DBOperations
                         PublishDate = new DateTime(2001, 12, 23)
                     }
                 );
-
-                context.SaveChanges();
+                  
+                //context.SaveChanges();
             }
         }
     }

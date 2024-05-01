@@ -6,14 +6,14 @@ namespace WebApi
     {
         public static void Main(string[] args)
         {
-            var host=CreateHostBuilder(args).Build();
+            var host = CreateHostBuilder(args).Build();
 
-            using (var scope=host.Services.CreateScope())
+            using (var scope = host.Services.CreateScope())
             {
-                var Services=scope.ServiceProvider;
-                DataGenerator.Initialize(Services);
+                var services = scope.ServiceProvider;
+                DataGenerator.Initialize(services);
             }
-            
+
             host.Run();
         }
 
