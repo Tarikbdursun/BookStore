@@ -81,7 +81,7 @@ public class AuthorController : ControllerBase
         var command = new DeleteAuthorCommand(_context);
         command.AuthorId=id;
 
-        var validator = new DeleteAuthorCommandValidator();
+        var validator = new DeleteAuthorCommandValidator(_context);
         validator.ValidateAndThrow(command);
 
         command.Handle();

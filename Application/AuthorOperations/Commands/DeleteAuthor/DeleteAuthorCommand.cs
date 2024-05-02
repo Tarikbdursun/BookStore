@@ -4,7 +4,7 @@ namespace WebApi.Application.AuthorOperations.Commands.DeleteAuthor;
 
 public class DeleteAuthorCommand
 {
-    private readonly BookStoreDbContext _context;
+    public readonly BookStoreDbContext _context;
     public int AuthorId { get; set; }
 
     public DeleteAuthorCommand(BookStoreDbContext context)
@@ -18,9 +18,6 @@ public class DeleteAuthorCommand
 
         if (author is null)
             throw new InvalidOperationException("Silinmek İstenen Yazar Bulunamadı");
-
-        if(_context.Books.Any(x=>x.AuthorId == AuthorId))
-            throw new InvalidOperationException("Kitabı Yayında Olan Yazar Silinemez");
         
         _context.Authors.Remove(author);
         _context.SaveChanges();

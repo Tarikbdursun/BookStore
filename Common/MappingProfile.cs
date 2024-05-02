@@ -15,21 +15,6 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        //Books
-        CreateMap<CreateBookModel, Book>();
-        CreateMap<Book,BookDetailViewModel>().ForMember(dest => dest.Genre, opt=>opt
-                                                            .MapFrom(src=> src.Genre.Name));
-        CreateMap<Book,BooksViewModel>().ForMember(dest => dest.Genre, opt=>opt
-                                                            .MapFrom(src=>src.Genre.Name));
-        CreateMap<Book,BookDetailViewModel>().ForMember(dest => dest.AuthorName, opt=>opt
-                                                            .MapFrom(src=> $"{src.Author.Name} {src.Author.LastName}"));
-        CreateMap<Book,BooksViewModel>().ForMember(dest => dest.AuthorName, opt=>opt
-                                                            .MapFrom(src=>$"{src.Author.Name} {src.Author.LastName}"));
-        CreateMap<Book,BookDetailViewModel>().ForMember(dest => dest.AuthorId, opt=>opt
-                                                            .MapFrom(src=> src.Author.Id));
-        CreateMap<Book,BooksViewModel>().ForMember(dest => dest.AuthorId, opt=>opt
-                                                            .MapFrom(src=>src.Author.Id));
-        
         //Genre
         CreateMap<Genre,GenresViewModel>();
         CreateMap<Genre,GenreDetailViewModel>();
@@ -38,5 +23,16 @@ public class MappingProfile : Profile
         CreateMap<CreateAuthorModel,Author>();
         CreateMap<Author,AuthorsViewModel>();
         CreateMap<Author,AuthorDetailViewModel>();
+
+        //Books
+        CreateMap<CreateBookModel, Book>();
+        CreateMap<Book,BookDetailViewModel>()
+            .ForMember(dest=>dest.Genre, opt=>opt.MapFrom(src=>src.Genre.Name))
+            .ForMember(dest=>dest.AuthorName, opt=>opt.MapFrom(src => $"{src.Author.Name} {src.Author.LastName}"))
+            .ForMember(dest=>dest.AuthorId, opt => opt.MapFrom(src=>src.AuthorId));
+        CreateMap<Book, BooksViewModel>()
+            .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
+            .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => $"{src.Author.Name} {src.Author.LastName}"))
+            .ForMember(dest => dest.AuthorId, opt => opt.MapFrom(src => src.Author.Id));
     }
 }
