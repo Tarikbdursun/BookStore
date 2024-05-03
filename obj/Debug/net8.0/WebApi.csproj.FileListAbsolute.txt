@@ -5,8 +5,14 @@ C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\WebApi.deps.json
 C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\WebApi.runtimeconfig.json
 C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\WebApi.dll
 C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\WebApi.pdb
+C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -17,6 +23,7 @@ C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfo.cs
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\WebApi.csproj.CoreCompileInputs.cache
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\staticwebassets\msbuild.WebApi.Microsoft.AspNetCore.StaticWebAssets.props
@@ -31,10 +38,3 @@ C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\refint\WebApi.dll
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\ref\WebApi.dll
-C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
-C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\FluentValidation.dll
-C:\Users\Tarık Buğra\BookStore\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
-C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\Tarık Buğra\BookStore\WebApi\bin\Debug\net8.0\AutoMapper.dll

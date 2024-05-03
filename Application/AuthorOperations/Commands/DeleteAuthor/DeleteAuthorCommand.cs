@@ -4,10 +4,10 @@ namespace WebApi.Application.AuthorOperations.Commands.DeleteAuthor;
 
 public class DeleteAuthorCommand
 {
-    public readonly BookStoreDbContext _context;
+    public readonly IBookStoreDbContext _context;
     public int AuthorId { get; set; }
 
-    public DeleteAuthorCommand(BookStoreDbContext context)
+    public DeleteAuthorCommand(IBookStoreDbContext context)
     {
         _context = context;
     }

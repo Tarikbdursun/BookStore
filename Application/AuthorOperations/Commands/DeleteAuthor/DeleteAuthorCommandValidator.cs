@@ -7,9 +7,9 @@ namespace WebApi.Application.AuthorOperations.Commands.DeleteAuthor;
 
 public class DeleteAuthorCommandValidator : AbstractValidator<DeleteAuthorCommand>
 {
-    private readonly BookStoreDbContext _context;
+    private readonly IBookStoreDbContext _context;
 
-    public DeleteAuthorCommandValidator(BookStoreDbContext context)
+    public DeleteAuthorCommandValidator(IBookStoreDbContext context)
     {
         _context = context;
         RuleFor(command=>command.AuthorId).GreaterThan(0);

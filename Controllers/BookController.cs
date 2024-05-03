@@ -7,7 +7,6 @@ using WebApi.BookOperations.GetBookDetail;
 using WebApi.BookOperations.GetBooks;
 using WebApi.BookOperations.UpdateBook;
 using WebApi.DBOperations;
-using FluentValidation.Results;
 using static WebApi.BookOperations.CreateBook.CreateBookCommand;
 using FluentValidation;
 using AutoMapper;
@@ -18,7 +17,7 @@ namespace WebApi.Controllers;
     [Route("[controller]s")]
     public class BookController : ControllerBase
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
         public BookController(BookStoreDbContext context, IMapper mapper)
         {
