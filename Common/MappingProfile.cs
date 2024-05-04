@@ -4,6 +4,7 @@ using WebApi.Application.AuthorOperations.Queries.GetAuthorDetail;
 using WebApi.Application.AuthorOperations.Queries.GetAuthors;
 using WebApi.Application.GenreOperations.Queries.GetGenreDetail;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
+using WebApi.BookOperations.CreateBook;
 using WebApi.BookOperations.GetBookDetail;
 using WebApi.BookOperations.GetBooks;
 using WebApi.Entities;

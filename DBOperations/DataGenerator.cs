@@ -78,6 +78,9 @@ namespace WebApi.DBOperations
 
         private static void InitializeAuthors(BookStoreDbContext context)
         {
+            if(context.Authors.Any())
+                return;
+            
             context.Authors.AddRange
             (
                 new Author 
